@@ -1,4 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
+const Serial=require('serialport');
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = '599357874:AAH9yIP42VM9uGNQ2hu9EhdVfc8LUxlvtYw';
@@ -14,6 +15,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 
   const chatId = msg.chat.id;
   const resp = match[1]; // the captured "whatever"
+  port.write(resp);
 
   // send back the matched "whatever" to the chat
   bot.sendMessage(chatId, resp);
@@ -27,3 +29,13 @@ bot.on('message', (msg) => {
   // send a message to the chat acknowledging receipt of their message
   bot.sendMessage(chatId, 'Received your message');
 });
+
+var OpcionSerial =
+{
+  baudRate: 9600,
+  autoOpen: true
+}
+
+var Puerto="/COMXX";
+
+var port = new Serial(Puerto, OpcionSerial);
