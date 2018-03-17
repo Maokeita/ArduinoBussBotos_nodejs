@@ -39,3 +39,11 @@ var OpcionSerial =
 var Puerto="/COMXX";
 
 var port = new Serial(Puerto, OpcionSerial);
+
+port.on('readable', function (){
+  var Data = port.read();
+  console.log('Data:', Data);
+  if (Data == "H") {
+    bot.sendMessage(432634481, "Hola alguien entro");
+  }
+})
