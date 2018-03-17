@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Maokeita/ArduinoBussBotos_nodejs/issues"
   },
-  "homepage": "https://github.com/Maokeita/ArduinoBussBotos_nodejs#readme"
+  "homepage": "https://github.com/Maokeita/ArduinoBussBotos_nodejs#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0"
+  }
 }
